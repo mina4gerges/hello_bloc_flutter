@@ -26,6 +26,28 @@ class _HomeScreen extends State<HomeScreen> {
             Text(
               'You have pushed the button this many times:',
             ),
+            BlocConsumer<CounterCubit, CounterState>(
+              listener: (context, state) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      state.wasIncremented == false
+                          ? 'Incremented'
+                          : 'Decremented!',
+                    ),
+                    duration: Duration(
+                      milliseconds: 300,
+                    ),
+                  ),
+                );
+              },
+              builder: (context, state) {
+                return Text(
+                  state.counterValue.toString(),
+                  style: Theme.of(context).textTheme.headline4,
+                );
+              },
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -41,26 +63,6 @@ class _HomeScreen extends State<HomeScreen> {
               },
               child: Text("Go to second page"),
             ),
-            BlocConsumer<CounterCubit, CounterState>(
-                listener: (context, state) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    state.wasIncremented == false
-                        ? 'Incremented'
-                        : 'Decremented!',
-                  ),
-                  duration: Duration(
-                    milliseconds: 300,
-                  ),
-                ),
-              );
-            }, builder: (context, state) {
-              return Text(
-                state.counterValue.toString(),
-                style: Theme.of(context).textTheme.headline4,
-              );
-            }),
           ],
         ),
       ),
