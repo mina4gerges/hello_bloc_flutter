@@ -16,6 +16,7 @@ class _ThirdScreen extends State<ThirdScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: Text(
           widget.title,
         ),

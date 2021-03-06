@@ -16,6 +16,7 @@ class _SecondScreen extends State<SecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text(
           widget.title,
         ),

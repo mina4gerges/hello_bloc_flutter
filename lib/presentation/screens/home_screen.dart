@@ -48,20 +48,19 @@ class _HomeScreen extends State<HomeScreen> {
                 );
               },
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      value: BlocProvider.of<CounterCubit>(context),
-                      child: SecondScreen(
-                        title: 'Second Screen',
-                      ),
-                    ),
-                  ),
-                );
-              },
-              child: Text("Go to second page"),
+            Column(
+              children: [
+                ElevatedButton(
+                  child: Text("Go to second screen"),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed('/secondScreen'),
+                ),
+                ElevatedButton(
+                  child: Text("Go to third screen"),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed('/thirdScreen'),
+                ),
+              ],
             ),
           ],
         ),
