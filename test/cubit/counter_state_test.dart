@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hello_bloc_flutter/cubit/counter_cubit.dart';
+import 'package:hello_bloc_flutter/logic/cubit/counter_cubit.dart';
 
 void main() {
   group('counter state test', () {
