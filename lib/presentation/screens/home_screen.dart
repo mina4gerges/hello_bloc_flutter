@@ -30,8 +30,8 @@ class _HomeScreen extends State<HomeScreen> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      state.wasIncremented == false
-                          ? 'Incremented'
+                      state.wasIncremented == true
+                          ? 'Incremented!'
                           : 'Decremented!',
                     ),
                     duration: Duration(
