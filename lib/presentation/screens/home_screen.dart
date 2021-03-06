@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hello_bloc_flutter/logic/cubit/counter_cubit.dart';
-import 'package:hello_bloc_flutter/presentation/screens/second_screen.dart';
+import '../../logic/cubit/counter_cubit.dart';
+import './second_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
