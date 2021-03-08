@@ -14,15 +14,14 @@ void main() {
       expect(counterCubit.state, CounterState(counterValue: 0));
     });
 
-
     blocTest('increment value by one',
         build: () => counterCubit,
         act: (cubit) => cubit.increment(),
-        expect: [CounterState(counterValue: 1)]);
+        expect: [CounterState(counterValue: 1, wasIncremented: true)]);
 
     blocTest('decrement value by one',
         build: () => counterCubit,
         act: (cubit) => cubit.decrement(),
-        expect: [CounterState(counterValue: -1)]);
+        expect: [CounterState(counterValue: -1, wasIncremented: false)]);
   });
 }
