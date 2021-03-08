@@ -58,7 +58,10 @@ class _HomeScreen extends State<HomeScreen> {
                 builder: (context, state) {
                   return Text(
                     state.counterValue.toString(),
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headline4,
                   );
                 },
               ),
@@ -79,8 +82,12 @@ class _HomeScreen extends State<HomeScreen> {
               ),
               Builder(
                 builder: (context) {
-                  final counterState = context.watch<CounterCubit>().state;
-                  final internetState = context.watch<InternetCubit>().state;
+                  final counterState = context
+                      .watch<CounterCubit>()
+                      .state;
+                  final internetState = context
+                      .watch<InternetCubit>()
+                      .state;
 
                   if (internetState is InternetConnected &&
                       internetState.connectionType == ConnectionType.Mobile) {
@@ -126,6 +133,11 @@ class _HomeScreen extends State<HomeScreen> {
                     child: Text("Go to third screen"),
                     onPressed: () =>
                         Navigator.of(context).pushNamed('/thirdScreen'),
+                  ),
+                  ElevatedButton(
+                    child: Text("Go to settings screen"),
+                    onPressed: () =>
+                        Navigator.of(context).pushNamed('/settingsScreen'),
                   ),
                 ],
               ),

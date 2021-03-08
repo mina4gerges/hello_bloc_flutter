@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../presentation/screens/home_screen.dart';
 import '../../presentation/screens/second_screen.dart';
+import '../../presentation/screens/settings_screen.dart';
 import '../../presentation/screens/third_screen.dart';
 
 class AppRouter {
@@ -17,6 +19,10 @@ class AppRouter {
       case '/thirdScreen':
         return MaterialPageRoute(
           builder: (_) => ThirdScreen(title: 'Third Screen'),
+        );
+      case '/settingsScreen':
+        return MaterialPageRoute(
+          builder: (_) => SettingsScreen(),
         );
       default:
         return null;
