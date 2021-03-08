@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../constants/enums.dart';
 import '../../logic/cubit/counter_cubit.dart';
+import '../../logic/cubit/internet_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -43,10 +46,29 @@ class _HomeScreen extends State<HomeScreen> {
               builder: (context, state) {
                 return Text(
                   state.counterValue.toString(),
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .headline4,
                 );
               },
             ),
+            BlocBuilder<InternetCubit, InternetState>(
+                builder: (context, state) {
+                  if (state is InternetConnected &&
+                      state.connectionType == ConnectionType.Wifi) {
+                    return Text("WIFI");
+                  } else if (state is InternetConnected &&
+                      state.connectionType == ConnectionType.Mobile) {
+                    return Text("Mobile");
+                  }
+                  else if (state is InternetDisconnected) {
+                    return Text("Disconnected");
+                  }
+                  else {
+                    return CircularProgressIndicator();
+                  }
+                }),
             Column(
               children: [
                 ElevatedButton(
